@@ -28,8 +28,10 @@ function App() {
   };
 
   return (
-    <div className="w-screen min-h-screen flex flex-col justify-start items-center p-4 space-y-4">
-      <h1 className="font-bold">Countries of the world</h1>
+    <div className="w-screen min-h-screen flex flex-col justify-start items-center p-4 space-y-4 bg-gray-800 py-8">
+      <h1 className="font-bold text-4xl mb-6 container mx-auto text-center text-white">
+        COUNTRIES OF THE WORLD! 🌎
+      </h1>
       <div className="space-y-4 flex flex-col">
         {/* <select>
           {fetchedData.map((country, index) => (
@@ -38,7 +40,7 @@ function App() {
         </select> */}
         <button
           onClick={handleFetchedData}
-          className="bg-zinc-800 text-gray-200 border border-zinc-700 rounded-lg py-2 px-6 hover:bg-zinc-700 focus:outline-none font-semibold"
+          className="bg-orange-500 hover:bg-orange-600 text-white py-2 px-6 rounded-lg focus:outline-none font-semibold"
         >
           fetch list of countries
         </button>
@@ -49,7 +51,7 @@ function App() {
             viewBox="0 0 24 24"
             stroke-width="1.5"
             stroke="currentColor"
-            className="w-6 h-6 animate-spin text-orange-500"
+            className="w-6 h-6 animate-spin mx-auto text-orange-500"
           >
             <path
               strokeLinecap="round"
@@ -62,7 +64,7 @@ function App() {
         {fetchAllCountryState === "success" &&
           fetchedData &&
           Array.isArray(fetchedData) && (
-            <div className="grid grid-cols-3 gap-y-2">
+            <div className="grid grid-cols-3 gap-y-2 text-white font-semibold">
               {fetchedData.map((country, index) => (
                 <Row country={country} key={index} index={index} />
               ))}
@@ -107,9 +109,9 @@ const Row = ({ country, index }) => {
         onClick={() => {
           handleKnowMore(country.name);
         }}
-        className="border bg-orange-500 text-white p-2 ml-4 rounded-md"
+        className="border bg-orange-500 text-white p-2 ml-4 rounded-md hover:bg-orange-600 focus:outline-none transition-all"
       >
-        {fetchCountryState === "loading" ? "Fetching" : "More info"}
+        {fetchCountryState === "loading" ? "fetching" : "more info"}
       </button>
     </>
   );
