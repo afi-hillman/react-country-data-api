@@ -117,18 +117,53 @@ const Row = ({ country, index }) => {
 
 const CountryCard = ({ countryData, setFetchCountryState }) => {
   return (
-    <div className="w-screen min-h-screen fixed top-0 left-0 flex justify-center items-center bg-orange-300/10">
-      <div className="bg-white w-[400px] p-2">
-        <div className="flex justify-between">
-          <span>Info</span>
-          <span
-            className="underline text-blue-400 cursor-pointer"
+    <div className="fixed top-0 left-0 w-screen h-screen flex justify-center items-center bg-gray-800/70">
+      <div className="bg-white w-[550px] p-6 rounded-lg shadow-lg">
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="text-2xl font-semibold">Country Information Card</h2>
+          <button
+            className="hover:underline p-2 text-white focus:outline-none border px-4 bg-gray-800 rounded-md"
             onClick={() => setFetchCountryState("pending")}
           >
-            close
-          </span>
+            Close
+          </button>
         </div>
-        <div>{JSON.stringify(countryData, null, 4)}</div>
+        <div>
+          <p className="font-bold text-xl">
+            {countryData[0].name.common} {countryData[0].flag}
+          </p>
+          <p className="italic text-gray-400/80 text-sm mb-2">
+            {countryData[0].name.official}
+          </p>
+          <p className="text-gray-600 mb-2">
+            Capital: {countryData[0].capital}
+          </p>
+          <p className="text-gray-600 mb-2">
+            Continent: {countryData[0].continents[0]}
+          </p>
+          <p className="text-gray-600 mb-2">
+            Population: {countryData[0].population.toLocaleString()} people
+          </p>
+          <span className="text-gray-600 mb-4">Google Maps: </span>
+          <a
+            href={countryData[0].maps.googleMaps}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-600 hover:text-blue-800 hover:underline"
+          >
+            {countryData[0].maps.googleMaps}
+          </a>
+          <div className="border overflow-hidden mt-4">
+            <img
+              src={countryData[0].flags.svg}
+              alt="Flag"
+              className="w-full h-auto"
+            />
+            <p className="text-center py-2 text-2xl">
+              Flag of {countryData[0].name.official}
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   );
