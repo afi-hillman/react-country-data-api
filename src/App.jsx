@@ -131,7 +131,7 @@ const CountryCard = ({ countryData, setFetchCountryState }) => {
           </button>
         </div>
         <div>
-          <p className="font-bold text-xl">
+          <p className="font-bold text-xl text-black">
             {countryData[0].name.common} {countryData[0].flag}
           </p>
           <p className="italic text-gray-400/80 text-sm mb-2">
@@ -161,7 +161,7 @@ const CountryCard = ({ countryData, setFetchCountryState }) => {
               alt="Flag"
               className="w-full h-auto"
             />
-            <p className="text-center py-2 text-2xl">
+            <p className="text-center py-2 text-2xl text-black">
               Flag of {countryData[0].name.official}
             </p>
           </div>
